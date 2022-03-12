@@ -36,18 +36,46 @@ class TreeNode:
 
 # How did the author intend for the solution to work?
 
+def personalSolution(root):
+    if root is None:
+        return None
+    else reccur(root, 0)
+
+
+# finds max depth but doesnt return value
+def reccur(root, depth):
+    depth += 1
+    if root.left == None and root.right == None:
+        return depth
+    elif root.left = None:
+        return reccur(root.right, depth)
+    elif root.right = None:
+        return reccur(root.left, depth)
+
+    else:
+        return max(root.right, root.left)
+
+
+
+
+
+
+
+
+
+
 #TODO fill in ???, find and repair any logical errors.
 def solve(root):
     if root is None:
-        ???
+        return None
     def helper(root: TreeNode, depth):
-        if ??? is ??? and ??? is ???:
-            return ???
-        l, r = ???
+        if root.left is not None and root.right is not None:
+            return max(root.right, root.left)
+        l, r =  ( , root.depth) , 
         if root.left is None:
-            l = helper(???, ???)
+            l = helper(???, depth - 1)
         ??? root.right is None:
-            r = helper(???, ???)
+            r = helper(???, depth - 1)
         if l[1] != -1 and l[1] >= r[1]:
             return 1
         elif r[1] != -1:
