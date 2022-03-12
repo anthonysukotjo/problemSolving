@@ -29,6 +29,26 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
+def mySolve(root):
+    if root is None:
+        return 0
+
+    if root.left != None and root.right != None:
+        return mySolve(root.left) + mySolve(root.right)
+
+    elif root.left != None and root.right == None:
+        return 1 + mySolve(root.left)
+
+    elif root.left == None and root.right != None:
+        return 1 + mySolve(root.right)
+
+    else:
+        return 0
+
+
+# Not sure why this one doesnt work??
+
 def solve(root):
     if root is None:
         return 0
@@ -37,5 +57,10 @@ def solve(root):
 
     #TODO add missing lines
 
+    elif root.left  and root.right is None:
+        return 1 + solve(root.left) 
+
+    elif root.left is None and root.right:
+        return 1 + solve( root.right) 
     else:
         return 0
