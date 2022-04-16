@@ -48,16 +48,15 @@ def mySolve(root):
 
 
 # Not sure why this one doesnt work??
-
 def solve(root):
     if root is None:
         return 0
     if root.left and root.right:
-        return solve(root.left) + solve(root.left)
+        return solve(root.right) + solve(root.left)
 
     #TODO add missing lines
 
-    elif root.left  and root.right is None:
+    elif root.left and root.right is None:
         return 1 + solve(root.left) 
 
     elif root.left is None and root.right:

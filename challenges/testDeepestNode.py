@@ -23,8 +23,17 @@ def __main__():
     root3.left, root3.right = root5, root6
     root4.right = root7
 
+    # root = 0
+    #       / \
+    #      5   9
+    #         / \
+    #        10  1
+    #       /  \   \
+    #      3    4   2
+
+
     got = DeepestNode.solve(root)
 #    expected = solutions.getDeepestNode(root)
-    print(f"Expected "+ str(4) + ", got " + str(got))
+    print(f"Expected "+ str(3) + ", got " + str(got))
 
 __main__()

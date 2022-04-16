@@ -36,27 +36,24 @@ class TreeNode:
 
 # How did the author intend for the solution to work?
 
-def personalSolution(root):
-    if root is None:
-        return None
-    else reccur(root, 0)
+# def personalSolution(root):
+#     if root is None:
+#         return None
+#     else reccur(root, 0)
 
 
-# finds max depth but doesnt return value
-def reccur(root, depth):
-    depth += 1
-    if root.left == None and root.right == None:
-        return depth
-    elif root.left = None:
-        return reccur(root.right, depth)
-    elif root.right = None:
-        return reccur(root.left, depth)
+# # finds max depth but doesnt return value
+# def reccur(root, depth):
+#     depth += 1
+#     if root.left == None and root.right == None:
+#         return depth
+#     elif root.left = None:
+#         return reccur(root.right, depth)
+#     elif root.right = None:
+#         return reccur(root.left, depth)
 
-    else:
-        return max(root.right, root.left)
-
-
-
+#     else:
+#         return max(root.right, root.left)
 
 
 
@@ -69,18 +66,26 @@ def solve(root):
     if root is None:
         return None
     def helper(root: TreeNode, depth):
-        if root.left is not None and root.right is not None:
-            return max(root.right, root.left)
-        l, r =  ( , root.depth) , 
-        if root.left is None:
-            l = helper(???, depth - 1)
-        ??? root.right is None:
-            r = helper(???, depth - 1)
+        if root.left is None and root.right is  None:
+            return (root.val, depth)
+        l, r = (-1,-1) , (-1,-1)  
+        if root.left is not None:
+            l = helper(root.left, depth + 1)
+        if root.right is not None:
+            r = helper(root.right, depth + 1)
+
+                        # looking at the depth
         if l[1] != -1 and l[1] >= r[1]:
-            return 1
-        elif r[1] != -1:
+            return l
+
+        # either left doesnt exists or right is deeper than left
+        elif r[1] != -1 :
             return r
-    helper(root, 100)
+
+
+
+# dont care about the value until the end
+    return helper(root, 0)[0]
 
 
 
